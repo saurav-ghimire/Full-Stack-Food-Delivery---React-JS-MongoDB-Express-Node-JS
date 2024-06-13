@@ -1,0 +1,111 @@
+/* General navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: white; /* Background color to make the red logo pop */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: "Outfit", sans-serif;
+
+}
+
+/* Logo styling */
+.navbar img {
+  cursor: pointer;
+}
+
+/* Navbar menu styling */
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-menu li {
+  margin: 0 15px;
+}
+
+.navbar-menu li a {
+  text-decoration: none;
+  color: #ff6347; /* Tomato color to match the logo */
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navbar-menu li a:hover {
+  color: #ff4500; /* Orange red color for hover effect */
+}
+
+/* Right section of navbar */
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-search-icon {
+  position: relative;
+  margin-right: 20px;
+}
+
+.navbar-right img {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  top: -4px;
+  right: -4px;
+}
+
+button {
+  background-color: #ff6347; /* Tomato color */
+  color: white;
+  border: 1px solid #ff6347;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+  background-color: white;
+  color: #ff6347;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+  }
+  
+  .navbar-menu.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-menu li {
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  .navbar-right {
+    margin-left: auto;
+  }
+}
