@@ -27,7 +27,7 @@ function Navbar() {
             <Image src={assets.basket_icon} height={20} width={20} />
               <div className="dot"></div>
           </div>
-          <button>Sign In</button>
+          <button className="custom-button">Sign In</button>
       </div>
     </div>
    );

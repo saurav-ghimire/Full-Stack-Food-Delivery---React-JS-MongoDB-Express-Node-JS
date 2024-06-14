@@ -21,7 +21,10 @@ body {
   color: rgb(var(--foreground-rgb));
   
 }
-
+.body-wrapper{
+  width: 85%;
+  margin: auto;
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;

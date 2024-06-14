@@ -67,17 +67,17 @@
   right: -4px;
 }
 
-button {
+.custom-button {
   background-color: #ff6347; /* Tomato color */
   color: white;
   border: 1px solid #ff6347;
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 8px 20px;
+  border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
 
-button:hover {
+.custom-button:hover {
   background-color: white;
   color: #ff6347;
 }
