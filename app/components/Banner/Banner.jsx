@@ -6,7 +6,7 @@ function Banner() {
       <div className="banner-overlay"></div>
       <div className="banner-content">
         <h2>Order your Favourite Food Here</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, fugit dolorem provident aperiam eius quasi, eum voluptate magni, cum asperiores hic blanditiis iusto perspiciatis fuga? Numquam nisi voluptates dolor optio.</p>
+        <p>From savory mains to mouth-watering desserts, we have something for every taste and preference. Place your order now and enjoy a delightful meal delivered straight to your door!</p>
         <button className="custom-button">View Menu</button>
       </div>
     </div>

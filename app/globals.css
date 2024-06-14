@@ -19,7 +19,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  
+  font-family: "Outfit", sans-serif;
 }
 .body-wrapper{
   width: 85%;

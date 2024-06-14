@@ -1,0 +1,64 @@
+/* General styling for ExploreMenu component */
+.explore-menu {
+  text-align: left;
+  padding: 40px;
+}
+
+/* Heading styling */
+.explore-menu h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #333; /* Dark gray color */
+}
+
+/* Text styling */
+.explore-menu-text {
+  font-size: 1.2em;
+  margin-bottom: 40px;
+  color: #666; /* Medium gray color */
+}
+
+/* Menu list container */
+.explore-menu-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Individual menu item */
+.explore-menu-item {
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+/* Menu item image */
+.explore-menu-item img {
+  width: 100%;
+  border-radius: 50%; /* Ensure circular shape */
+}
+
+/* Menu item content */
+.explore-menu-item-content {
+  padding: 15px;
+  text-align: center;
+}
+
+/* Menu item name */
+.explore-menu-item h3 {
+  font-size: 1.4em;
+  margin: 10px 0;
+  font-weight: bold;
+  color: #333; /* Dark gray color */
+}
+
+/* Hover effect on menu item */
+.explore-menu-item:hover {
+  transform: translateY(-5px);
+}
