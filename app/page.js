@@ -3,6 +3,7 @@ import { useState } from "react";
 import Banner from "./components/Banner/Banner";
 import ExploreMenu from "./components/ExploreMenu/ExploreMenu";
 import FoodDisplay from "./components/foodDisplay/foodDisplay";
+import AppDownload from "./components/AppDownload/AppDownload";
 
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
         <Banner />        
         <ExploreMenu category={category} setCategory={setCategory} />
         <FoodDisplay category={category} />
+        <AppDownload />
     </div>
   );
 }

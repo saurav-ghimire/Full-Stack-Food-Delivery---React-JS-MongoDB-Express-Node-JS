@@ -9,7 +9,7 @@ function FoodDisplay({category}) {
   
   return ( 
     <div className="food_display" id="food_display">
-        <h2>Top Dishes Near You {category}</h2>
+        <h2>Top Dishes Near You : {category}</h2>
         <div className="food-display-list">
           {
             food_list.map((item,index) => {
