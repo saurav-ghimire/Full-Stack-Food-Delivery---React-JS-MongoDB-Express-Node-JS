@@ -2,8 +2,8 @@ import { menu_list } from "@/app/assets/assets";
 import Image from "next/image";
 import './ExploreMenu.css'
 
-function ExploreMenu() {
-  console.log(menu_list)
+function ExploreMenu({category,setCategory}) {
+  
   return ( 
     <div className="explore-menu" id="explore-menu">
       <h2>Explore our menu</h2>
@@ -11,9 +11,9 @@ function ExploreMenu() {
       <div className="explore-menu-list">
         {
           menu_list.slice(0, 7).map((item, index) => (
-            <div className="explore-menu-item" key={index}>
-              <Image src={item.menu_image} alt="Menu IMage" />
-              <h3>{item?.menu_name}</h3>
+            <div onClick={() =>setCategory(prev=>prev===item.menu_name? "All" : item.menu_name)} className="explore-menu-item" key={index}>
+              <Image className={category===item.menu_name ? 'active' : ''} src={item.menu_image} alt="Menu IMage" />
+              <h3 className={category===item.menu_name ? 'active' : ''}>{item?.menu_name}</h3>
             </div>
           ))
         }

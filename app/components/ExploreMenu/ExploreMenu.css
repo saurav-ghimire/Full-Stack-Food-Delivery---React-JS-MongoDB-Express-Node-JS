@@ -1,7 +1,7 @@
 /* General styling for ExploreMenu component */
 .explore-menu {
   text-align: left;
-  padding: 40px;
+  padding: 40px 0;
 }
 
 /* Heading styling */
@@ -36,12 +36,15 @@
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 /* Menu item image */
 .explore-menu-item img {
   width: 100%;
   border-radius: 50%; /* Ensure circular shape */
+  border:5px solid transparent;
+  transition: all linear .3s;
 }
 
 /* Menu item content */
@@ -56,9 +59,17 @@
   margin: 10px 0;
   font-weight: bold;
   color: #333; /* Dark gray color */
+  transition: all linear .3s;
 }
 
 /* Hover effect on menu item */
 .explore-menu-item:hover {
   transform: translateY(-5px);
+}
+
+.explore-menu-item img.active{
+  background-color: #ff6347;
+}
+.explore-menu-item h3.active{
+  color: #ff6347;
 }
