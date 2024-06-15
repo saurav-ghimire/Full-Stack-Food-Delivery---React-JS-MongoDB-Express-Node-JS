@@ -127,11 +127,11 @@
   opacity: 0.8;
 }
 
-.food-item .icon-container:first-child {
+.food-item .icon-container:last-child {
   background-color: #28a745; /* Green background */
 }
 
-.food-item .icon-container:last-child {
+.food-item .icon-container:first-child {
   background-color: #dc3545; /* Red background */
 }
 

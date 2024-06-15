@@ -8,20 +8,9 @@ import { useState,useEffect } from 'react';
 
 function Cart() {
   
-  const { cartItems, addToCart, removeFromCart, food_list } = storeContext();
+  const { cartItems, addToCart, removeFromCart, food_list, totalPrice } = storeContext();
   
-  const [totalPrice, setTotalPrice] = useState(0);
-
-  useEffect(() => {
-    // Calculate total price when cartItems or food_list changes
-    let total = 0;
-    food_list.forEach(item => {
-      if (cartItems[item._id] > 0) {
-        total += item.price * cartItems[item._id];
-      }
-    });
-    setTotalPrice(total);
-  }, [cartItems, food_list]); // Depend on cartItems and food_list
+  
 
 
   return ( 
@@ -80,7 +69,7 @@ function Cart() {
           <p>Delivery Fee : <span>Free Delivery</span></p>
           <hr />
           <p className="total-price-text">Total : <span className="price-highlight">${totalPrice}</span></p>
-          <button className="proceed-to-pay-btn">Proceed to Pay</button>
+          <Link href="/checkout"><button className="proceed-to-pay-btn">Proceed to Checkout</button></Link>
         </div>
         <div className="promotion">
             <p>If you have a promotion then enter here</p>

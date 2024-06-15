@@ -5,9 +5,11 @@ import Link from "next/link";
 import './Navbar.css'
 import { useState } from "react";
 import LoginPopup from "../LoginPopup/LoginPopup";
+import { storeContext } from "@/app/context/storeContext";
 
 function Navbar() {
     const [showLogin, setShowLogin] = useState(false);
+    const {cartItems} = storeContext();
     const handlePopup = () => {
         setShowLogin(!showLogin)
         console.log(showLogin)
@@ -35,7 +37,8 @@ function Navbar() {
                 <Image src={assets.search_icon} height={20} width={20} alt="Food Ordering"/>
                 <div className="navbar-search-icon">
                     <Link href="/cart"><Image src={assets.basket_icon} height={20} width={20} alt="Food Ordering"/></Link>
-                    <div className="dot"></div>
+                    {Object.keys(cartItems).length > 0 ? <div className="dot"></div> : ''}
+                    
                 </div>
                 <button className="custom-button" onClick={() => handlePopup()}>Sign In</button>
             </div>

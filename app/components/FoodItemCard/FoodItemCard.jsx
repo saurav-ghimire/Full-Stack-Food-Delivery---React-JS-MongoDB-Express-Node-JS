@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import './FoodItemCard.css';
 import { assets } from '@/app/assets/assets';
-import { useContext } from 'react';
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { storeContext } from '@/app/context/storeContext';
+import { useState } from 'react';
 
 function FoodItemCard({ item }) {
   const { cartItems, addToCart, removeFromCart } = storeContext();
+  const [clickSound] = useState(new Audio('/success.mp3')); // Adjust the path to your sound file
 
   return (
     <div className="food-item">
@@ -14,14 +15,25 @@ function FoodItemCard({ item }) {
         <Image src={item?.image} layout="fill" className="food-item-image" alt={item?.name} />
         {
           !cartItems[item?._id] 
-            ? <FaPlus className="first-add" onClick={() => addToCart(item._id)} /> 
+            ? <FaPlus className="first-add" onClick={() =>
+               {
+                addToCart(item._id);
+                clickSound.currentTime = 0;
+                  clickSound.play();
+               }
+              } /> 
             : <div className="food-item-counter">
-                <div className="icon-container" onClick={() => addToCart(item._id)}>
-                  <FaPlus className="plus-icon" />
-                </div>
-                <span className="item-count">{cartItems[item._id]}</span>
+                
                 <div className="icon-container" onClick={() => removeFromCart(item._id)}>
                   <FaMinus className="minus-icon" />
+                </div>
+                <span className="item-count">{cartItems[item._id]}</span>
+                <div className="icon-container" onClick={() => {
+                  addToCart(item._id);
+                  clickSound.currentTime = 0;
+                  clickSound.play();
+                  }}>
+                  <FaPlus className="plus-icon" />
                 </div>
               </div>
         }
