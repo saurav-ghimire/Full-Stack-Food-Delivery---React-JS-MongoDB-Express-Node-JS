@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar/Navbar";
 import { MyProvider } from "./context/storeContext";
 import Footer from "./components/Footer/Footer";
+import LoginPopup from "./components/LoginPopup/LoginPopup";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,10 +13,12 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  
+  
   return (
     <html lang="en">
       <body className={inter.className}>
-      <MyProvider>
+      <MyProvider>     
         <Navbar /> 
           <div className="body-wrapper">
             {children}
