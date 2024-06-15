@@ -1,6 +1,6 @@
 
 .footer {
-  background-color: #12617d;
+  background-color: #333;
   color: #f0f0f0; 
   padding: 40px 20px;
 }
@@ -21,10 +21,14 @@
 }
 
 .footer-section h2 {
-  color: #fff; 
+  color: #ff6347; 
   margin-bottom: 10px;
   font-size: 18px;
   font-weight: bold; 
+}
+
+.footer-section .footer-logo{
+  margin-bottom: 20px;
 }
 
 .footer-section p, .footer-section a {

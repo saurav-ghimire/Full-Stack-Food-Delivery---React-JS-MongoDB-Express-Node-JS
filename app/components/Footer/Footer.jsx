@@ -1,13 +1,16 @@
 // components/Footer/Footer.js
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import './Footer.css';
+import Image from 'next/image';
+import { assets } from '@/app/assets/assets';
 
 function Footer() {
   return (
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-section about">
-          <h2>About Us</h2>
+          <Image src={assets.logo} className="footer-logo" />
+
           <p>
             We are a leading food delivery service, providing delicious meals from the best
             restaurants in your area.
