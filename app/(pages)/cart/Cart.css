@@ -1,0 +1,102 @@
+.cart-wrapper {
+  padding: 2rem;
+  background: #f9f9f9;
+  margin: 40px 0;
+}
+
+.cart-title {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.cart-empty-message {
+  text-align: left;
+  font-weight: bold;
+  color: #333;
+}
+
+.go-to-home-btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #ff6347;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.go-to-home-btn:hover {
+  background-color: #0c4b5f;
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.cart-table th, .cart-table td {
+  padding: 1rem;
+  text-align: left;
+}
+
+.cart-table th {
+  background: #12617d;
+  color: #fff;
+  font-weight: bold;
+}
+
+.cart-table tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+.cart-image {
+  display: flex;
+  align-items: center;
+}
+
+.cart-image img {
+  border-radius: 5px;
+}
+
+.cart-wrapper .food-item-counter {
+  display: flex;
+  align-items: center;
+}
+
+.cart-wrapper .icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ff6347;
+  color: #fff;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: all linear .3s;
+}
+
+.cart-wrapper .icon-container:first-child {
+  background: #d9534f; /* Danger background */
+  color: #fff; /* White text */
+}
+
+.cart-wrapper .icon-container:last-child {
+  background: #5cb85c; /* Success background */
+  color: #fff; /* White text */
+}
+
+.remove-icon {
+  cursor: pointer;
+  color: #d9534f; /* Danger color */
+  font-size: 1.2rem;
+}

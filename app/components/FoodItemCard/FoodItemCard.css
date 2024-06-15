@@ -93,7 +93,7 @@
 }
 
 
-.food-item-counter {
+.food-item .food-item-counter {
   display: flex;
   align-items: center;
   position: absolute;
@@ -104,7 +104,7 @@
   padding: 2px;
 }
 
-.icon-container {
+.food-item .icon-container {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -115,27 +115,27 @@
   transition: background-color 0.3s;
 }
 
-.plus-icon {
+.food-item .plus-icon {
   color: #fff;
 }
 
-.minus-icon {
+.food-item .minus-icon {
   color: #fff;
 }
 
-.icon-container:hover {
+.food-item .icon-container:hover {
   opacity: 0.8;
 }
 
-.icon-container:first-child {
+.food-item .icon-container:first-child {
   background-color: #28a745; /* Green background */
 }
 
-.icon-container:last-child {
+.food-item .icon-container:last-child {
   background-color: #dc3545; /* Red background */
 }
 
-.item-count {
+.food-item .item-count {
   font-size: 18px;
   font-weight: bold;
   margin: 0 8px;

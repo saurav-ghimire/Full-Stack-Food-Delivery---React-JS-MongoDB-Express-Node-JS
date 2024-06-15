@@ -6,8 +6,7 @@
   padding: 10px 20px;
   background-color: white; /* Background color to make the red logo pop */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
+ 
   z-index: 1000;
   font-family: "Outfit", sans-serif;
 

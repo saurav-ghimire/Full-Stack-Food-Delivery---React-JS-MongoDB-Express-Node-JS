@@ -5,6 +5,7 @@ import Link from "next/link";
 import './Navbar.css'
 import { useState } from "react";
 import LoginPopup from "../LoginPopup/LoginPopup";
+
 function Navbar() {
     const [showLogin, setShowLogin] = useState(false);
     const handlePopup = () => {
@@ -18,7 +19,7 @@ function Navbar() {
             <Image src={assets.logo} height={100} width={130} alt="Food Ordering"/>
             <ul className="navbar-menu">
                 <li>
-                    <Link href="">Home</Link>
+                    <Link href="/">Home</Link>
                 </li>
                 <li>
                     <Link href="">Menu</Link>
@@ -33,7 +34,7 @@ function Navbar() {
             <div className="navbar-right">
                 <Image src={assets.search_icon} height={20} width={20} alt="Food Ordering"/>
                 <div className="navbar-search-icon">
-                    <Image src={assets.basket_icon} height={20} width={20} alt="Food Ordering"/>
+                    <Link href="/cart"><Image src={assets.basket_icon} height={20} width={20} alt="Food Ordering"/></Link>
                     <div className="dot"></div>
                 </div>
                 <button className="custom-button" onClick={() => handlePopup()}>Sign In</button>
