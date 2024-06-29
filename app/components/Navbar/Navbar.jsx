@@ -9,10 +9,9 @@ import { storeContext } from "@/app/context/storeContext";
 
 function Navbar() {
     const [showLogin, setShowLogin] = useState(false);
-    const {cartItems} = storeContext();
+    const {cartItems, token, setToken} = storeContext();
     const handlePopup = () => {
-        setShowLogin(!showLogin)
-        console.log(showLogin)
+        setShowLogin(!showLogin);
     }
   return ( 
     
@@ -40,7 +39,20 @@ function Navbar() {
                     {Object.keys(cartItems).length > 0 ? <div className="dot"></div> : ''}
                     
                 </div>
-                <button className="custom-button" onClick={() => handlePopup()}>Sign In</button>
+                {
+                    !token? <button className="custom-button" onClick={() => handlePopup()}>Sign In</button> : <div>
+                        <Image src={assets?.profile_icon} />
+                        <ul className="nav-profile-dropdown">
+                            <li>
+                                <Image src={assets.bag_icon} /> Order
+                            </li>
+                            <li>
+                            <Image src={assets.logout_icon} /> Logout
+                            </li>
+                        </ul>
+                    </div>
+                }
+                
             </div>
         </div>
         

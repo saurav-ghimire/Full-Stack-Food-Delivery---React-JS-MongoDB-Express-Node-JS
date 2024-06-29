@@ -6,6 +6,8 @@ const MyContext = createContext(null);
 
 export const MyProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState({});
+  
+  const [token, setToken] = useState("");
 
   const addToCart = (itemId) => {
     setCartItems((prev) => {
@@ -46,7 +48,10 @@ export const MyProvider = ({ children }) => {
     setCartItems,
     addToCart,
     removeFromCart,
-    totalPrice: calculateTotalPrice() // Calculate total price
+    setToken,
+    token,
+    totalPrice: calculateTotalPrice() // Calculate total price,
+    
 
   };
 

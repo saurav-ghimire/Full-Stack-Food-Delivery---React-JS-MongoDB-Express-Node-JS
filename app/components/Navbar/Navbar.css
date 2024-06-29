@@ -81,6 +81,47 @@
   color: #ff6347;
 }
 
+/* Profile dropdown styling */
+.nav-profile-dropdown {
+  display: none;
+  position: absolute;
+  top: 30px; /* Adjust based on your navbar height */
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  list-style: none;
+  padding: 10px 0;
+  width: max-content;
+}
+
+.nav-profile-dropdown li {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.nav-profile-dropdown li:hover {
+  background-color: #f1f1f1;
+}
+
+.nav-profile-dropdown li img {
+  margin-right: 10px;
+}
+
+.navbar-right > div {
+  position: relative;
+}
+
+.navbar-right > div:hover .nav-profile-dropdown {
+  display: block;
+}
+
+
 /* Responsive design */
 @media (max-width: 768px) {
   .navbar-menu {
@@ -108,3 +149,4 @@
     margin-left: auto;
   }
 }
+
