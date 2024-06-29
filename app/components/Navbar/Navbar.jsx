@@ -6,12 +6,21 @@ import './Navbar.css'
 import { useState } from "react";
 import LoginPopup from "../LoginPopup/LoginPopup";
 import { storeContext } from "@/app/context/storeContext";
+import { useRouter } from "next/navigation";
 
 function Navbar() {
     const [showLogin, setShowLogin] = useState(false);
     const {cartItems, token, setToken} = storeContext();
+    const router = useRouter();
+
     const handlePopup = () => {
         setShowLogin(!showLogin);
+    }
+    
+    const logout = () => {
+        localStorage.removeItem("token");
+        setToken("");
+        router.push("/");
     }
   return ( 
     
@@ -46,8 +55,8 @@ function Navbar() {
                             <li>
                                 <Image src={assets.bag_icon} /> Order
                             </li>
-                            <li>
-                            <Image src={assets.logout_icon} /> Logout
+                            <li onClick={logout}>
+                                <Image src={assets.logout_icon} /> Logout
                             </li>
                         </ul>
                     </div>
