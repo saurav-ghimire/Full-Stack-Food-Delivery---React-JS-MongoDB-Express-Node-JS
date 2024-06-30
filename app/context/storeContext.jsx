@@ -1,13 +1,26 @@
 "use client"
+import axios from 'axios';
 import { createContext, useContext, useState, useEffect } from 'react';
-import { food_list } from '../assets/assets';
 
 const MyContext = createContext(null);
 
 export const MyProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState({});
-  
   const [token, setToken] = useState("");
+  const [food_list, setFoodList] = useState([]);
+
+  const fetchFoodList = async() => {
+    try {
+      const response = await axios.get(process.env.NEXT_PUBLIC_BACKEND_URL + 'api/food/foods');
+      if (response.data) {
+        setFoodList(response.data.data);
+      } else {
+        console.error("No data found in response");
+      }
+    } catch (error) {
+      console.error("Error fetching food list:", error);
+    }
+  }
 
   const addToCart = (itemId) => {
     setCartItems((prev) => {
@@ -32,16 +45,28 @@ export const MyProvider = ({ children }) => {
 
   const [totalPrice, setTotalPrice] = useState(0);
 
- // Calculate total price when cartItems or food_list changes
- const calculateTotalPrice = () => {
-  let total = 0;
-  food_list.forEach(item => {
-    if (cartItems[item._id] > 0) {
-      total += item.price * cartItems[item._id];
+  // Calculate total price when cartItems or food_list changes
+  const calculateTotalPrice = () => {
+    let total = 0;
+    food_list.forEach(item => {
+      if (cartItems[item._id] > 0) {
+        total += item.price * cartItems[item._id];
+      }
+    });
+    return total;
+  };
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      setToken(localStorage.getItem("token"));
     }
-  });
-  return total;
-};
+    fetchFoodList();
+  }, []);
+
+  useEffect(() => {
+    setTotalPrice(calculateTotalPrice());
+  }, [cartItems, food_list]); // Depend on cartItems and food_list
+
   const contextValue = {
     food_list,
     cartItems,
@@ -50,17 +75,9 @@ export const MyProvider = ({ children }) => {
     removeFromCart,
     setToken,
     token,
-    totalPrice: calculateTotalPrice() // Calculate total price,
-    
-
+    totalPrice
   };
 
-  useEffect(() => {
-    // Update total price whenever cartItems or food_list changes
-    contextValue.totalPrice = calculateTotalPrice();
-  }, [cartItems, food_list]); // Depend on cartItems and food_list
-
-  
   return (
     <MyContext.Provider value={contextValue}>
       {children}

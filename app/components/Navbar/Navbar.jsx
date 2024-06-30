@@ -49,7 +49,7 @@ function Navbar() {
                     
                 </div>
                 {
-                    !token? <button className="custom-button" onClick={() => handlePopup()}>Sign In</button> : <div>
+                    !token? <button className="custom-button" onClick={() => handlePopup()}>Sign In</button> : <div className="profile-icon">
                         <Image src={assets?.profile_icon} />
                         <ul className="nav-profile-dropdown">
                             <li>

@@ -9,7 +9,7 @@ import { useState,useEffect } from 'react';
 function Cart() {
   
   const { cartItems, addToCart, removeFromCart, food_list, totalPrice } = storeContext();
-  
+  const url = process.env.NEXT_PUBLIC_BACKEND_URL;
   
 
 
@@ -38,7 +38,7 @@ function Cart() {
               return (
                 <tr key={index}>
                   <td className="cart-image">
-                    <Image src={item.image} alt={item.name} width={50} height={50} />
+                    <Image src={url + 'images/' + item.image} alt={item.name} width={50} height={50} />
                   </td>
                   <td>{item.name}</td>
                   <td>${item.price.toFixed(2)}</td>

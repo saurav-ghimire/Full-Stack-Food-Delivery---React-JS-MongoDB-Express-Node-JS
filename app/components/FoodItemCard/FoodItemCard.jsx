@@ -8,11 +8,11 @@ import { useState } from 'react';
 function FoodItemCard({ item }) {
   const { cartItems, addToCart, removeFromCart } = storeContext();
   const [clickSound] = useState(new Audio('/success.mp3')); // Adjust the path to your sound file
-
+  const url = process.env.NEXT_PUBLIC_BACKEND_URL;
   return (
     <div className="food-item">
       <div className="food-item-image-container">
-        <Image src={item?.image} layout="fill" className="food-item-image" alt={item?.name} />
+        <Image src={url + 'images/' + item?.image} layout="fill" className="food-item-image" alt={item?.name} />
         {
           !cartItems[item?._id] 
             ? <FaPlus className="first-add" onClick={() =>
