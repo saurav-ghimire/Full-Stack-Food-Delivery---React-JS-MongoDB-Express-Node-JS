@@ -1,5 +1,6 @@
 "use client"
 import axios from 'axios';
+
 import { createContext, useContext, useState, useEffect } from 'react';
 
 const MyContext = createContext(null);
@@ -22,14 +23,21 @@ export const MyProvider = ({ children }) => {
     }
   }
 
-  const addToCart = (itemId) => {
-    setCartItems((prev) => {
-      if (!prev[itemId]) {
-        return { ...prev, [itemId]: 1 };
-      } else {
-        return { ...prev, [itemId]: prev[itemId] + 1 };
+  const addToCart =  async (itemId) => {
+    if (!cartItems[itemId]) {
+      setCartItems((prev) =>  ({ ...prev, [itemId]: 1 }));
+    } else {
+      setCartItems((prev) =>  ({ ...prev, [itemId]: prev[itemId] + 1 }));
+    }
+    if(token){
+      try {
+        await axios.post(process.env.NEXT_PUBLIC_BACKEND_URL + 'api/cart/add', { itemId }, {
+          headers: { token }
+        });
+      } catch (error) {
+        console.error("Error adding to cart:", error);
       }
-    });
+    }
   };
 
   const removeFromCart = (itemId) => {
