@@ -40,7 +40,7 @@ export const MyProvider = ({ children }) => {
     }
   };
 
-  const removeFromCart = (itemId) => {
+  const removeFromCart = async (itemId) => {
     setCartItems((prev) => {
       if (prev[itemId] > 1) {
         return { ...prev, [itemId]: prev[itemId] - 1 };
@@ -49,6 +49,15 @@ export const MyProvider = ({ children }) => {
         return rest;
       }
     });
+    if(token){
+      try {
+        await axios.post(process.env.NEXT_PUBLIC_BACKEND_URL + 'api/cart/remove', { itemId }, {
+          headers: { token }
+        });
+      } catch (error) {
+        console.error("Error removing from cart:", error);
+      }
+    }
   };
 
   const [totalPrice, setTotalPrice] = useState(0);
