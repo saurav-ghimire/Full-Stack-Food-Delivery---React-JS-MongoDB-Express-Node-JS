@@ -1,6 +1,5 @@
 "use client"
 import axios from 'axios';
-
 import { createContext, useContext, useState, useEffect } from 'react';
 
 const MyContext = createContext(null);
@@ -23,13 +22,18 @@ export const MyProvider = ({ children }) => {
     }
   }
 
-  const addToCart =  async (itemId) => {
-    if (!cartItems[itemId]) {
-      setCartItems((prev) =>  ({ ...prev, [itemId]: 1 }));
-    } else {
-      setCartItems((prev) =>  ({ ...prev, [itemId]: prev[itemId] + 1 }));
-    }
-    if(token){
+  const addToCart = async (itemId) => {
+    setCartItems((prev) => {
+      const updatedCart = { ...prev };
+      if (updatedCart[itemId]) {
+        updatedCart[itemId] += 1;
+      } else {
+        updatedCart[itemId] = 1;
+      }
+      return updatedCart;
+    });
+  
+    if (token) {
       try {
         await axios.post(process.env.NEXT_PUBLIC_BACKEND_URL + 'api/cart/add', { itemId }, {
           headers: { token }
@@ -39,17 +43,22 @@ export const MyProvider = ({ children }) => {
       }
     }
   };
+  
 
   const removeFromCart = async (itemId) => {
     setCartItems((prev) => {
-      if (prev[itemId] > 1) {
-        return { ...prev, [itemId]: prev[itemId] - 1 };
+      const updatedCart = { ...prev };
+
+      if (updatedCart[itemId] > 1) {
+        updatedCart[itemId] -= 1;
       } else {
-        const { [itemId]: _, ...rest } = prev;
-        return rest;
+        delete updatedCart[itemId];
       }
+
+      return updatedCart;
     });
-    if(token){
+
+    if (token) {
       try {
         await axios.post(process.env.NEXT_PUBLIC_BACKEND_URL + 'api/cart/remove', { itemId }, {
           headers: { token }
@@ -58,7 +67,7 @@ export const MyProvider = ({ children }) => {
         console.error("Error removing from cart:", error);
       }
     }
-  };
+  }
 
   const [totalPrice, setTotalPrice] = useState(0);
 
@@ -73,12 +82,31 @@ export const MyProvider = ({ children }) => {
     return total;
   };
 
+  const loadCartData = async () => {
+    try {
+      const response = await axios.get(process.env.NEXT_PUBLIC_BACKEND_URL + 'api/cart/get', {
+        headers: {token}
+      });
+      setCartItems(response.data.cartData);
+      return { success: true, response };
+    } catch (error) {
+      console.error("Error loading cart data:", error);
+      return { success: false, error };
+    }
+  }
+
   useEffect(() => {
     if (localStorage.getItem("token")) {
       setToken(localStorage.getItem("token"));
     }
     fetchFoodList();
   }, []);
+
+  useEffect(() => {
+    if (token) {
+      loadCartData();
+    }
+  }, [token]);
 
   useEffect(() => {
     setTotalPrice(calculateTotalPrice());
@@ -92,7 +120,8 @@ export const MyProvider = ({ children }) => {
     removeFromCart,
     setToken,
     token,
-    totalPrice
+    totalPrice,
+    loadCartData
   };
 
   return (
