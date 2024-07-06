@@ -26,6 +26,17 @@
   margin-bottom: 15px;
 }
 
+.formGroupWrapper{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+}
+
+.innerTitle{
+  width: 100%;
+}
 .formGroup label {
   display: block;
   margin-bottom: 5px;
