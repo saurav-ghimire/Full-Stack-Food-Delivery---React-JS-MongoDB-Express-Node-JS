@@ -1,56 +1,83 @@
-"use client"
+"use client";
 import { storeContext } from '@/app/context/storeContext';
 import './checkout.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import axios from 'axios';
 
 const Checkout = () => {
-  
-  const {totalPrice,token,cartItems,food_list} = storeContext();
-  
+  const { totalPrice, token, cartItems, food_list } = storeContext();
+  const url = process.env.NEXT_PUBLIC_BACKEND_URL;
   let totalItem = 0;
 
   // Loop through each key in the cartItems object
   for (let key in cartItems) {
-      // Add the value associated with the current key to the total
-      totalItem += cartItems[key];
+    totalItem += cartItems[key];
   }
 
   const [data, setData] = useState({
-    firstName : "",
+    firstName: "",
     lastName: "",
-    email : "",
-    streetAddress : "",
-    apt : "",
-    city : "",
-    province : "",
-    postalCode : "",
-    phone : ""
+    email: "",
+    streetAddress: "",
+    apt: "",
+    city: "",
+    province: "",
+    postalCode: "",
+    phone: ""
   });
-  
-  useEffect(() => {
-    console.log(data)
-  },[data])
 
   const onChangeHandler = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    setData(data=>({...data, [name]:value}))
-  }
+    setData(data => ({ ...data, [name]: value }));
+  };
+
+  const placeOrder = async (event) => {
+    event.preventDefault();
+    let orderItems = [];
+    food_list.map((item) => {
+      if (cartItems[item._id] > 0) {
+        let itemInfo = { ...item };
+        itemInfo["quantity"] = cartItems[item._id];
+        orderItems.push(itemInfo);
+      }
+    });
+
+    let orderData = {
+      address: data,
+      items: orderItems,
+      amount: totalPrice
+    };
+
+    try {
+      let response = await axios.post(`${url}api/order/place`, orderData, { headers: { token } });
+      if (response.data.success) {
+        const { success_url } = response.data;
+        window.location.replace(success_url);
+      } else {
+        console.log(response.data);
+        alert("Error");
+      }
+    } catch (error) {
+      console.log(error);
+      alert("Error");
+    }
+  };
 
   return (
     <div className="checkout">
       <div className="shipping">
         <h2>Details</h2>
-        <form className="shippingForm">
-        <div className='formGroupWrapper'>
-          <div className="formGroup">
-            <label htmlFor="firstName">First Name</label>
-            <input type="text" id="firstName" name="firstName" onChange={onChangeHandler} value={data.firstName} required />
-          </div>
-          <div className="formGroup">
-            <label htmlFor="lastName">Last Name</label>
-            <input type="text" id="lastName" name="lastName" onChange={onChangeHandler} value={data.lastName} required />
-          </div>
+        <form className="shippingForm" onSubmit={placeOrder}>
+          <div className='formGroupWrapper'>
+            <div className="formGroup">
+              <label htmlFor="firstName">First Name</label>
+              <input type="text" id="firstName" name="firstName" onChange={onChangeHandler} value={data.firstName} required />
+            </div>
+            <div className="formGroup">
+              <label htmlFor="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" onChange={onChangeHandler} value={data.lastName} required />
+            </div>
           </div>
           <div className='formGroupWrapper'>
             <div className="formGroup">
@@ -90,6 +117,10 @@ const Checkout = () => {
             <label htmlFor="postalCode">Postal Code</label>
             <input type="text" id="postalCode" name="postalCode" onChange={onChangeHandler} value={data.postalCode} required />
           </div>
+
+          <div className="paynow">
+            <button type='submit'>Pay Now</button>
+          </div>
         </form>
       </div>
       <div className="orderSummary">
@@ -110,15 +141,12 @@ const Checkout = () => {
           {food_list.map((item, index) => {
             if (cartItems[item._id] > 0) {
               return (
-                <div className="bag-summary-single">
+                <div className="bag-summary-single" key={index}>
                   <p>{item.name}, Quantity: {cartItems[item._id]}, Price: <span>{cartItems[item._id] * item.price}</span></p>
-                  
                 </div>
               )
             }
-          })
-        }
-          
+          })}
         </div>
       </div>
     </div>

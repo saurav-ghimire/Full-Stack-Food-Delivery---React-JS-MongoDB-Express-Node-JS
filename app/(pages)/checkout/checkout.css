@@ -99,3 +99,36 @@
   color: #e60023;
 }
 
+.paynow{
+  width: 100%;
+}
+
+.paynow button {
+  background-color: #6772e5; 
+  color: #ffffff; 
+  font-size: 16px; 
+  font-weight: 600; 
+  padding: 12px 20px; 
+  border: none; 
+  border-radius: 6px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  width: 100%;
+  display: block;
+  margin-top: 20px;
+}
+
+.paynow button:hover {
+  background-color: #5469d4; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.paynow button:active {
+  background-color: #4353b4; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.paynow button:focus {
+  outline: none; 
+}
