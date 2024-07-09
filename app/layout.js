@@ -3,7 +3,6 @@ import "./globals.css";
 import Navbar from "./components/Navbar/Navbar";
 import { MyProvider } from "./context/storeContext";
 import Footer from "./components/Footer/Footer";
-import LoginPopup from "./components/LoginPopup/LoginPopup";
 
 const inter = Inter({ subsets: ["latin"] });
 
