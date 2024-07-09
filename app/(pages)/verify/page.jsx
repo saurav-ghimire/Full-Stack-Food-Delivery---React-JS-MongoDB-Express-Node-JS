@@ -21,7 +21,7 @@ function Verify() {
       const response = await axios.post(`${url}api/order/verify`, { success, orderId },{ headers: { token } });
       console.log(response.data)
       if(response.data.success){
-        router.push('/myorder')
+        router.push('/myorders')
       }else{
         router.push('/')
       }
