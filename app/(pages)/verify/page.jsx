@@ -2,7 +2,7 @@
 import axios from 'axios';
 import './Verify.css'
 import { useSearchParams, useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { storeContext } from '@/app/context/storeContext';
 
 
@@ -14,24 +14,29 @@ function Verify() {
   const success = searchParams.get('success');
   const orderId = searchParams.get('orderId');
   const url = process.env.NEXT_PUBLIC_BACKEND_URL
-
+  const [error, setError] = useState("Loading...");
   const verifyPayment = async () => {
-    
+      
       
       const response = await axios.post(`${url}api/order/verify`, { success, orderId },{ headers: { token } });
       console.log(response.data)
       if(response.data.success){
         router.push('/myorder')
+      }else{
+        router.push('/')
       }
   }
 
   useEffect(() => {
     verifyPayment();
+    
   },[token]);
 
   return ( 
     <div>
-      {url}
+      {
+        error && error
+      }
     </div>
   );
 }
