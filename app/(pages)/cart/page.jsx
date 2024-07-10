@@ -8,7 +8,7 @@ import { useState,useEffect } from 'react';
 
 function Cart() {
   
-  const { cartItems, addToCart, removeFromCart, food_list, totalPrice } = storeContext();
+  const { cartItems, addToCart, removeFromCart, food_list, totalPrice, token } = storeContext();
   const url = process.env.NEXT_PUBLIC_BACKEND_URL;
   
 
@@ -69,7 +69,10 @@ function Cart() {
           <p>Delivery Fee : <span>Free Delivery</span></p>
           <hr />
           <p className="total-price-text">Total : <span className="price-highlight">${totalPrice}</span></p>
-          <Link href="/checkout"><button className="proceed-to-pay-btn">Proceed to Checkout</button></Link>
+          {
+            token ? <Link href="/checkout"><button className="proceed-to-pay-btn">Proceed to Checkout</button></Link> : <div className='logonMessage'> <h3>Please Login For Checking Out</h3></div>
+          }
+          
         </div>
         <div className="promotion">
             <p>If you have a promotion then enter here</p>
