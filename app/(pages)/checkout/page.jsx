@@ -1,14 +1,14 @@
 "use client";
 import { storeContext } from '@/app/context/storeContext';
 import './checkout.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import { useSearchParams, useRouter } from 'next/navigation';
 const Checkout = () => {
   const { totalPrice, token, cartItems, food_list } = storeContext();
   const url = process.env.NEXT_PUBLIC_BACKEND_URL;
   let totalItem = 0;
-
+  
   // Loop through each key in the cartItems object
   for (let key in cartItems) {
     totalItem += cartItems[key];

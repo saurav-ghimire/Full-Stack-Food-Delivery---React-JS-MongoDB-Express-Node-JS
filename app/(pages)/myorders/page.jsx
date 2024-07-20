@@ -42,17 +42,23 @@ function MyOrder() {
                 <div className="order-amount">
                   ${order.amount.toFixed(2)}
                 </div>
-                <div className="order-items-count">
-                  Items: {order.items.length}
-                </div>
-                <div className="order-status">
-                  <span className={`status-dot ${order.status === "Food Processing" ? "processing" : ""}`}></span>
-                  {order.status}
-                </div>
+                
               </div>
+
             </div>
-            <div className="track-order-button">
-              <button>Track Order</button>
+            <div className='bottom-order-wrapper'>
+              <div className='bottom-order-wrapper'>
+              <div className="order-items-count">
+                    Items: {order.items.length}
+                  </div>
+                  <div className="order-status">
+                    <span className={`status-dot ${order.status === "Food Processing" ? "processing" : ""}`}></span>
+                    {order.status}
+                  </div>
+              </div>
+              <div className="track-order-button">
+                <button>Track Order</button>
+              </div>
             </div>
           </div>
         ))

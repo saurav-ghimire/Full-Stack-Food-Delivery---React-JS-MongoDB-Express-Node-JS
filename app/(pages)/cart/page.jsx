@@ -11,8 +11,6 @@ function Cart() {
   const { cartItems, addToCart, removeFromCart, food_list, totalPrice, token } = storeContext();
   const url = process.env.NEXT_PUBLIC_BACKEND_URL;
   
-
-
   return ( 
     <div className="cart-wrapper">
       {

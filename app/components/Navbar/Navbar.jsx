@@ -53,7 +53,7 @@ function Navbar() {
                         <Image src={assets?.profile_icon} />
                         <ul className="nav-profile-dropdown">
                             <li>
-                                <Image src={assets.bag_icon} /> Order
+                                <Link href="/myorders"><Image src={assets.bag_icon} /> Order</Link>
                             </li>
                             <li onClick={logout}>
                                 <Image src={assets.logout_icon} /> Logout

@@ -102,10 +102,14 @@
   padding: 10px 20px;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
+.nav-profile-dropdown li a{
+  display: flex;
+}
 .nav-profile-dropdown li:hover {
   background-color: #f1f1f1;
 }
