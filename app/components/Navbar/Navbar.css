@@ -4,9 +4,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: white; /* Background color to make the red logo pop */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
- 
+  background-color: transparent; 
   z-index: 1000;
   font-family: "Outfit", sans-serif;
 
@@ -31,13 +29,13 @@
 
 .navbar-menu li a {
   text-decoration: none;
-  color: #12617d; /* Tomato color to match the logo */
+  color: #12617d; 
   font-weight: bold;
   transition: color 0.3s;
 }
 
 .navbar-menu li a:hover {
-  color: #ff4500; /* Orange red color for hover effect */
+  color: #ff4500;
 }
 
 /* Right section of navbar */
@@ -67,7 +65,7 @@
 }
 
 .custom-button {
-  background-color: #ff6347; /* Tomato color */
+  background-color: #ff6347; 
   color: white;
   border: 1px solid #ff6347;
   padding: 8px 20px;
@@ -86,7 +84,7 @@
   display: none;
   transition: all linear .3s;
   position: absolute;
-  top: 40px; /* Adjust based on your navbar height */
+  top: 40px; 
   right: 0;
   background-color: white;
   border:2px solid #eee;

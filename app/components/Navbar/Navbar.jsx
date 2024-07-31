@@ -22,9 +22,9 @@ function Navbar() {
         setToken("");
         router.push("/");
     }
-  return ( 
-    
-    <div className="header-wrapper">
+  return (     
+        <>
+            <div className="header-wrapper">
         <div className="navbar">
             <Image src={assets.logo} height={100} width={130} alt="Food Ordering"/>
             <ul className="navbar-menu">
@@ -68,6 +68,7 @@ function Navbar() {
             {showLogin?<div className="login-wrapper"><LoginPopup setShowLogin={setShowLogin}/></div>:<></>}
         
     </div>
+        </>
    );
 }
 
