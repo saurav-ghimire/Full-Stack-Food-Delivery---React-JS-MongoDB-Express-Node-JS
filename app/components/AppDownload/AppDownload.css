@@ -6,22 +6,15 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  position: relative;
-  z-index: 1;
+  
 }
-
-.app-download::before {
-  content: '';
+.app-download-content .svg-cloud{
   position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 100%;
-  width: 120%;
-  background-color: #f4f4f9;
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: -1;
-  transform: translate(-50%, -50%);
 }
-
 .app-download-content {
   max-width: 800px;
   margin: auto;
@@ -29,6 +22,8 @@
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
 }
 
 .app-download-title {
