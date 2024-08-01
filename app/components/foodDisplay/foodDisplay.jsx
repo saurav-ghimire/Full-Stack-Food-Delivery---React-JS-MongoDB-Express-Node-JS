@@ -6,14 +6,14 @@ function FoodDisplay({category}) {
 
   const {food_list} = storeContext();
   
-  
+  console.log(category)
   return ( 
     <div className="food_display" id="food_display">
         <h2>Top Dishes Near You : {category}</h2>
         <div className="food-display-list">
           {
             food_list?.map((item,index) => {
-              if(category === 'All' || category===item.category){
+              if(category === 'All' || category===item?.category?.title){
                 return <FoodItemCard item={item} key={index} />
               }
              })

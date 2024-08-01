@@ -41,7 +41,8 @@
 
 /* Menu item image */
 .explore-menu-item img {
-  width: 100%;
+  width: 150px;
+  height: 150px;
   border-radius: 50%; /* Ensure circular shape */
   border:5px solid transparent;
   transition: all linear .3s;

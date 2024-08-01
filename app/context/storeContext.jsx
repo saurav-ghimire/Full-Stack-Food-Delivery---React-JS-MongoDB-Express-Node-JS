@@ -20,6 +20,7 @@ export const MyProvider = ({ children }) => {
     } catch (error) {
       console.error("Error fetching food list:", error);
     }
+    
   }
 
   const addToCart = async (itemId) => {
