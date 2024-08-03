@@ -9,7 +9,7 @@ import AppDownload from "./components/AppDownload/AppDownload";
 export default function Home() {
   const[category, setCategory] = useState("All")
   return (
-    <div className="wrapper">
+    <div className="body-wrapper">
       <div>
       <div className="svg-container">
         <svg

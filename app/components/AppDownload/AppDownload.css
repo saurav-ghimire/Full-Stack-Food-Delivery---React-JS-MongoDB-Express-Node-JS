@@ -1,24 +1,18 @@
 .app-download {
-  background-color: #f4f4f9; /* Light background for contrast */
-  color: #333; /* Dark text color for readability */
-  padding: 60px 20px;
+  color: #333; 
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  
+  margin: 40px 0;
+  position: relative;
+  overflow: hidden;
 }
-.app-download-content .svg-cloud{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: -1;
-}
+
 .app-download-content {
   max-width: 800px;
   margin: auto;
-  background-color: #12617d; /* Primary theme color */
+  background-color: #12617d;
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -29,14 +23,14 @@
 .app-download-title {
   font-size: 24px;
   margin-bottom: 10px;
-  color: #fff; /* White color for title */
+  color: #fff;
   font-weight: bold;
 }
 
 .app-download-description {
   font-size: 16px;
   margin-bottom: 30px;
-  color: #e0e0e0; /* Light text color for readability */
+  color: #e0e0e0;
 }
 
 .app-download-buttons {
@@ -56,7 +50,16 @@
 }
 
 .app-download-image {
-  width: 150px; /* Adjust size as needed */
+  width: 150px;
   height: auto;
   border-radius: 10px;
+}
+
+.app-download-content .svg-cloud {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: -1;
 }
