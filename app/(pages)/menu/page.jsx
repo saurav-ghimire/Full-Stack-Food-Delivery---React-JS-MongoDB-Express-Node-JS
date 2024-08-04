@@ -4,6 +4,7 @@ import './Menu.css';
 import axios from 'axios';
 import FoodItemCard from '@/app/components/FoodItemCard/FoodItemCard';
 import { toast } from 'react-toastify';
+import { FaTimes } from 'react-icons/fa';
 
 function Menu() {
   const url = process.env.NEXT_PUBLIC_BACKEND_URL;
@@ -99,13 +100,14 @@ function Menu() {
       </div>
 
       <div className="product-section">
-        <div>
+        
+        <div className='filter-result'>
         { filterData?.min ?<span>Min :{ filterData?.min}  </span>: '' }
         { filterData?.max ?<span>Max :{ filterData?.max}  </span>: '' }
         
           {
             filterCategory.map((data)=>(
-              <span>{data}</span>
+              <div className='single-cat'><span><FaTimes /></span>{data}</div>
             ))
           }
           

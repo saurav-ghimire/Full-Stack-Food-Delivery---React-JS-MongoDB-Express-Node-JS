@@ -101,3 +101,29 @@
   background-color: #333;
   color: #fff;
 }
+.filter-result{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  background-color: #eee;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+.filter-result span{font-weight: 500;}
+
+.filter-result .single-cat{
+  background-color: #fff;
+  padding: 4px 10px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  position: relative;
+}
+.filter-result .single-cat span{
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  z-index: 1;
+  cursor: pointer;
+}
