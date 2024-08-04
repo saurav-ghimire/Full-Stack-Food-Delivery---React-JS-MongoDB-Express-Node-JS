@@ -9,7 +9,7 @@ function ExploreMenu({category,setCategory}) {
     const [menu, setMenu] = useState([]);
     const fetchMenu = async() => {
       const response = await axios.get(process.env.NEXT_PUBLIC_BACKEND_URL+'api/category/all');
-      console.log(response);
+      
       if(response?.data?.success){
         setMenu(response?.data?.allCategory)
       }

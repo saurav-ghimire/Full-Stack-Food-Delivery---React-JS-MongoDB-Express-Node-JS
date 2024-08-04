@@ -127,3 +127,12 @@
   z-index: 1;
   cursor: pointer;
 }
+.error-message{
+  display: block;
+  margin-top: 30px;
+  background-color: #12617d;
+  color: #fff;
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 20px;
+}
