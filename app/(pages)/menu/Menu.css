@@ -1,0 +1,92 @@
+.menu-container {
+  display: flex;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+/* Filter Section */
+.filter-section {
+  flex: 1;
+  max-width: 300px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-right: 20px;
+}
+
+.filter-section h2, .filter-section h3 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.search-bar input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.filter-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.filter-category li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.filter-category label {
+  margin-left: 8px;
+  font-size: 14px;
+  color: #555;
+}
+
+.filter-price label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+.filter-price input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+/* Product Section */
+.product-section {
+  flex: 3;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.filter-btn{
+  background-color: #ff6347; /* Highlighted color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all linear .3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.filter-btn:hover{
+  background-color: #333;
+  color: #fff;
+}

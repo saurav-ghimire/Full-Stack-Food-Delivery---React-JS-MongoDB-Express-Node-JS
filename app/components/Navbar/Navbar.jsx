@@ -32,7 +32,7 @@ function Navbar() {
                     <Link href="/">Home</Link>
                 </li>
                 <li>
-                    <Link href="">Menu</Link>
+                    <Link href="/menu">Menu</Link>
                 </li>
                 <li>
                     <Link href="">Mobile App</Link>
