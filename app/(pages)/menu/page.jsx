@@ -2,20 +2,30 @@
 import { useEffect, useState } from 'react';
 import './Menu.css';
 import axios from 'axios';
+import FoodItemCard from '@/app/components/FoodItemCard/FoodItemCard';
 
 function Menu() {
   const url = process.env.NEXT_PUBLIC_BACKEND_URL;
 
   const [category, setCategory] = useState([]);
-  
+  const [food, setFood] = useState([]);
   const allCategory = async() => {
     const response = await axios.get(url+'api/category/all');
     if(response?.data?.success){
       setCategory(response?.data?.allCategory);
     }
   }
+
+  const getFoods = async() => {
+    const response = await axios.get(url + 'api/food/foods');
+    if(response?.data?.success){
+      setFood(response?.data?.data)
+    }
+  }
+
   useEffect(() => {
     allCategory();
+    getFoods();
   },[]);
   
     
@@ -56,7 +66,11 @@ function Menu() {
       </div>
 
       <div className="product-section">
-        {/* Leave this section for your product components */}
+        {
+          food.map((item, index)=>(
+            <FoodItemCard item={item} key={index} />
+          ))
+        }
       </div>
     </div>
   );
