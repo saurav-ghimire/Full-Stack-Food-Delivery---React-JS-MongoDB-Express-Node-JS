@@ -1,7 +1,8 @@
 "use client"
 import axios from 'axios';
 import { createContext, useContext, useState, useEffect } from 'react';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const MyContext = createContext(null);
 
 export const MyProvider = ({ children }) => {
@@ -128,6 +129,7 @@ export const MyProvider = ({ children }) => {
   return (
     <MyContext.Provider value={contextValue}>
       {children}
+      <ToastContainer />
     </MyContext.Provider>
   );
 };
