@@ -4,6 +4,7 @@ import { assets } from '@/app/assets/assets';
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { storeContext } from '@/app/context/storeContext';
 import { useState } from 'react';
+import Link from 'next/link';
 
 function FoodItemCard({ item }) {
   const { cartItems, addToCart, removeFromCart } = storeContext();
@@ -39,19 +40,21 @@ function FoodItemCard({ item }) {
         }
       </div>
       <div className="food-item-info">
+       <Link href={`/food/${item?._id}`}>
         <div className="food-item-name-rating">
-          <p>{item?.name}</p>
-        </div>
-        <p className="food-item-desc">{item?.description}</p>
-        <p className="food-item-price">
-          <span>
-            ${item?.price}
-            {item?.discount && (
-              <span className="food-item-discount">-{item?.discount}%</span>
-            )}
-          </span>
-          <Image src={assets.rating_starts} alt="rating" />
-        </p>
+            <p>{item?.name}</p>
+          </div>
+          <p className="food-item-desc">{item?.description}</p>
+          <p className="food-item-price">
+            <span>
+              ${item?.price}
+              {item?.discount && (
+                <span className="food-item-discount">-{item?.discount}%</span>
+              )}
+            </span>
+            <Image src={assets.rating_starts} alt="rating" />
+          </p>
+       </Link>
       </div>
     </div>
   );
