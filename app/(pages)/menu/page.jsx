@@ -137,15 +137,17 @@ function Menu() {
       </div>
 
       <div className="product-section">
-        <div className="filter-result">
-          {filterData.min && <span>Min: {filterData.min} </span>}
-          {filterData.max && <span>Max: {filterData.max} </span>}
-          {filterCategory.map((data, index) => (
-            <div key={index} className="single-cat">
-              <span onClick={() => deleteFilterCategory(data)}><FaTimes /></span>{data}
-            </div>
-          ))}
-        </div>
+      {(filterData.min || filterData.max || filterCategory.length > 0) && (
+          <div className="filter-result">
+            {filterData.min && <span>Min: {filterData.min} </span>}
+            {filterData.max && <span>Max: {filterData.max} </span>}
+            {filterCategory.map((data, index) => (
+              <div key={index} className="single-cat">
+                <span onClick={() => deleteFilterCategory(data)}><FaTimes /></span>{data}
+              </div>
+            ))}
+          </div>
+        )}
         <div className="foods-wrapper">
           {
             filteredFood.length > 0 ? filteredFood.map((item, index) => (

@@ -35,10 +35,10 @@ function Navbar() {
                     <Link href="/menu">Menu</Link>
                 </li>
                 <li>
-                    <Link href="">Mobile App</Link>
+                    <Link href="/mobile-app">Mobile App</Link>
                 </li>
                 <li>
-                    <Link href="">Contact us</Link>
+                    <Link href="/contact-us">Contact us</Link>
                 </li>
             </ul>
             <div className="navbar-right">
