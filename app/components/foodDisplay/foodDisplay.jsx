@@ -1,10 +1,10 @@
-import { storeContext } from "@/app/context/storeContext";
+import { useStoreContext } from "@/app/context/storeContext";
 import './foodDisplay.css'
 import FoodItemCard from "../FoodItemCard/FoodItemCard";
 
 function FoodDisplay({category}) {
 
-  const {food_list} = storeContext();
+  const {food_list} = useStoreContext();
   
   console.log(category)
   return ( 

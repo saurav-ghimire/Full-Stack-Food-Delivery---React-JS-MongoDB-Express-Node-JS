@@ -1,14 +1,15 @@
 "use client";
-import { storeContext } from '@/app/context/storeContext';
+
 import './Cart.css';
 import Image from 'next/image';
 import { FaPlus, FaMinus } from "react-icons/fa";
 import Link from 'next/link';
 import { useState,useEffect } from 'react';
+import { useStoreContext } from '@/app/context/storeContext';
 
 function Cart() {
   
-  const { cartItems, addToCart, removeFromCart, food_list, totalPrice, token } = storeContext();
+  const { cartItems, addToCart, removeFromCart, food_list, totalPrice, token } = useStoreContext();
   const url = process.env.NEXT_PUBLIC_BACKEND_URL;
   
   return ( 

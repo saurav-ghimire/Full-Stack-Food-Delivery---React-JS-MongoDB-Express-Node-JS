@@ -1,11 +1,11 @@
 "use client";
-import { storeContext } from '@/app/context/storeContext';
+import { useStoreContext } from '@/app/context/storeContext';
 import './checkout.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useSearchParams, useRouter } from 'next/navigation';
 const Checkout = () => {
-  const { totalPrice, token, cartItems, food_list } = storeContext();
+  const { totalPrice, token, cartItems, food_list } = useStoreContext();
   const url = process.env.NEXT_PUBLIC_BACKEND_URL;
   let totalItem = 0;
   

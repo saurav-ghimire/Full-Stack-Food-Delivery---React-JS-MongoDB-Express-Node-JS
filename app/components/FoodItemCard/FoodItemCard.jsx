@@ -2,12 +2,12 @@ import Image from 'next/image';
 import './FoodItemCard.css';
 import { assets } from '@/app/assets/assets';
 import { FaPlus, FaMinus } from "react-icons/fa";
-import { storeContext } from '@/app/context/storeContext';
+import { useStoreContext } from '@/app/context/storeContext';
 import { useState } from 'react';
 import Link from 'next/link';
 
 function FoodItemCard({ item }) {
-  const { cartItems, addToCart, removeFromCart } = storeContext();
+  const { cartItems, addToCart, removeFromCart } = useStoreContext();
   const [clickSound] = useState(new Audio('/success.mp3')); // Adjust the path to your sound file
   const url = process.env.NEXT_PUBLIC_BACKEND_URL;
   return (

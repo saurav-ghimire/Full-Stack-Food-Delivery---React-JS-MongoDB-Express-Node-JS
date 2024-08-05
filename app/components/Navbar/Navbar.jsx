@@ -5,14 +5,14 @@ import Link from "next/link";
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import LoginPopup from "../LoginPopup/LoginPopup";
-import { storeContext } from "@/app/context/storeContext";
+import { useStoreContext } from "@/app/context/storeContext";
 import { useRouter } from "next/navigation";
 import './Navbar.css';
 
 function Navbar() {
   const [showLogin, setShowLogin] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); // State for mobile menu
-  const { cartItems, token, setToken } = storeContext();
+  const { cartItems, token, setToken } = useStoreContext();
   const router = useRouter();
 
   const handlePopup = () => {

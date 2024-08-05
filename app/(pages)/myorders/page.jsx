@@ -1,12 +1,12 @@
 "use client";
 import axios from 'axios';
 import './myOrder.css';
-import { storeContext } from '@/app/context/storeContext';
+import { useStoreContext } from '@/app/context/storeContext';
 import { useEffect, useState } from 'react';
 
 function MyOrder() {
   const [data, setData] = useState([]);
-  const { token } = storeContext();
+  const { token } = useStoreContext();
 
   const getOrders = async () => {
     if (token) {

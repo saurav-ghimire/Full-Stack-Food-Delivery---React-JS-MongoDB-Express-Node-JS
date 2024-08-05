@@ -3,11 +3,11 @@ import axios from 'axios';
 import './Verify.css'
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { storeContext } from '@/app/context/storeContext';
+import { useStoreContext } from '@/app/context/storeContext';
 
 
 function Verify() {
-  const { token } = storeContext();
+  const { token } = useStoreContext();
 
   const searchParams = useSearchParams();
   const router = useRouter();

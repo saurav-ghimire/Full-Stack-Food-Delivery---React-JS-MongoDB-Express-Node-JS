@@ -4,11 +4,11 @@ import './singleFood.css'
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { FaPlus, FaMinus } from "react-icons/fa";
-import { storeContext } from '@/app/context/storeContext';
+import { useStoreContext } from '@/app/context/storeContext';
 import Link from 'next/link';
 
 function SingleFood({ params }) {
-  const { cartItems, addToCart, removeFromCart, token } = storeContext();
+  const { cartItems, addToCart, removeFromCart, token } = useStoreContext();
   const [clickSound] = useState(new Audio('/success.mp3')); // Correct path: audio file in the public folder
   const [item, setItem] = useState();
   const { id } = params;

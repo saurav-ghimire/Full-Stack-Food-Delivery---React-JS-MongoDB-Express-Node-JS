@@ -3,11 +3,11 @@ import { IoClose } from "react-icons/io5";
 import { useContext, useState } from 'react';
 import './LoginPopup.css';
 import axios from "axios";
-import { storeContext } from "@/app/context/storeContext";
+import { useStoreContext } from "@/app/context/storeContext";
 
 function LoginPopup({ setShowLogin }) {
   const [currentState, setCurrentState] = useState("Login");
-  const { setToken } = storeContext();
+  const { setToken } = useStoreContext();
 
   const url = process.env.NEXT_PUBLIC_BACKEND_URL;
 
