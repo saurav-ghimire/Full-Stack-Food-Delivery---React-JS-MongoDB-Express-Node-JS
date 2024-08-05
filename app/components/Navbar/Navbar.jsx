@@ -60,13 +60,13 @@ function Navbar() {
               <button className="custom-button" onClick={handlePopup}>Sign In</button>
             ) : (
               <div className="profile-icon">
-                <Image src={assets?.profile_icon} />
+                <Image src={assets?.profile_icon} alt="Profile" />
                 <ul className="nav-profile-dropdown">
                   <li>
                     <Link href="/myorders"><Image src={assets.bag_icon} /> Order</Link>
                   </li>
                   <li onClick={logout}>
-                    <Image src={assets.logout_icon} /> Logout
+                    <Image src={assets.logout_icon} alt="Logout" /> Logout
                   </li>
                 </ul>
               </div>

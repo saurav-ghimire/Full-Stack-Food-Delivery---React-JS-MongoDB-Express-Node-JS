@@ -9,7 +9,7 @@ function Footer() {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-section about">
-          <Image src={assets.logo} className="footer-logo" />
+          <Image src={assets.logo} className="footer-logo" alt='Logo' />
 
           <p>
             We are a leading food delivery service, providing delicious meals from the best
