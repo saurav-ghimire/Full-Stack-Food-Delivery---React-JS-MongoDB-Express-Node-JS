@@ -126,4 +126,7 @@
   .map {
     height: 150px;
   }
+  .contact-container::before{
+    display: none;
+  }
 }

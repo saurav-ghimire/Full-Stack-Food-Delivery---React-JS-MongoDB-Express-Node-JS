@@ -4,7 +4,7 @@
   padding: 50px 20px;
 }
 
-.checkout h2{
+.checkout h2 {
   margin-bottom: 1rem;
   font-size: 1.5rem;
   color: #333;
@@ -12,6 +12,7 @@
   border-bottom: 2px solid #eee;
   padding-bottom: 10px;
 }
+
 .shipping, .orderSummary {
   width: 48%;
 }
@@ -26,7 +27,7 @@
   margin-bottom: 15px;
 }
 
-.formGroupWrapper{
+.formGroupWrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -34,9 +35,10 @@
   width: 100%;
 }
 
-.innerTitle{
+.innerTitle {
   width: 100%;
 }
+
 .formGroup label {
   display: block;
   margin-bottom: 5px;
@@ -99,36 +101,106 @@
   color: #e60023;
 }
 
-.paynow{
+.paynow {
   width: 100%;
 }
 
 .paynow button {
-  background-color: #6772e5; 
-  color: #ffffff; 
-  font-size: 16px; 
-  font-weight: 600; 
-  padding: 12px 20px; 
-  border: none; 
-  border-radius: 6px; 
-  cursor: pointer; 
-  transition: background-color 0.3s ease, box-shadow 0.3s ease; 
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  background-color: #6772e5;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 100%;
   display: block;
   margin-top: 20px;
 }
 
 .paynow button:hover {
-  background-color: #5469d4; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  background-color: #5469d4;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .paynow button:active {
-  background-color: #4353b4; 
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  background-color: #4353b4;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .paynow button:focus {
-  outline: none; 
+  outline: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .checkout {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .shipping, .orderSummary {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .orderSummary {
+    padding: 15px;
+  }
+  
+  .promoCode input {
+    width: 60%;
+  }
+
+  .promoCode button {
+    width: 35%;
+    margin-left: 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout h2 {
+    font-size: 1.25rem;
+  }
+
+  .shipping, .orderSummary {
+    width: 100%;
+  }
+
+  .orderSummary {
+    padding: 15px;
+  }
+  
+  .promoCode input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .promoCode button {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .checkout {
+    padding: 15px;
+  }
+
+  .checkout h2 {
+    font-size: 1.2rem;
+  }
+
+  .shipping, .orderSummary {
+    padding: 15px;
+  }
+
+  .promoCode input, .promoCode button {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
 }

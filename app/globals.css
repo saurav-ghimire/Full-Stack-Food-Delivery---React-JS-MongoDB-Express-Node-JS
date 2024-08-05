@@ -58,3 +58,13 @@ body {
     text-wrap: balance;
   }
 }
+@media (max-width: 991px) {
+  .svg-container{
+    top: -20%;
+  }  
+}
+@media (max-width: 600px) {
+.svg-container{
+  top: -30%;
+}
+}

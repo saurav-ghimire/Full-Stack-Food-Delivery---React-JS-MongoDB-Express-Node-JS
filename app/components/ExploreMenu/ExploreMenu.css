@@ -1,25 +1,21 @@
-/* General styling for ExploreMenu component */
 .explore-menu {
   text-align: left;
   padding: 40px 0;
 }
 
-/* Heading styling */
 .explore-menu h2 {
   font-size: 2.5em;
   margin-bottom: 20px;
   font-weight: bold;
-  color: #333; /* Dark gray color */
+  color: #333; 
 }
 
-/* Text styling */
 .explore-menu-text {
   font-size: 1.2em;
   margin-bottom: 40px;
-  color: #666; /* Medium gray color */
+  color: #666; 
 }
 
-/* Menu list container */
 .explore-menu-list {
   display: flex;
   flex-wrap: wrap;
@@ -27,7 +23,6 @@
   gap: 20px;
 }
 
-/* Individual menu item */
 .explore-menu-item {
   width: 140px;
   display: flex;
@@ -39,31 +34,27 @@
   cursor: pointer;
 }
 
-/* Menu item image */
 .explore-menu-item img {
   width: 150px;
   height: 150px;
-  border-radius: 50%; /* Ensure circular shape */
+  border-radius: 50%; 
   border:5px solid transparent;
   transition: all linear .3s;
 }
 
-/* Menu item content */
 .explore-menu-item-content {
   padding: 15px;
   text-align: center;
 }
 
-/* Menu item name */
 .explore-menu-item h3 {
   font-size: 1.4em;
   margin: 10px 0;
   font-weight: bold;
-  color: #333; /* Dark gray color */
+  color: #333; 
   transition: all linear .3s;
 }
 
-/* Hover effect on menu item */
 .explore-menu-item:hover {
   transform: translateY(-5px);
 }
@@ -73,4 +64,17 @@
 }
 .explore-menu-item h3.active{
   color: #ff6347;
+}
+
+@media (max-width: 768px) {
+  .explore-menu h2{
+    font-size: 1.5em;
+  } 
+  .explore-menu-text{
+    font-size: 1em;
+  }
+  .explore-menu-item img{
+    width: 120px;
+    height: 120px;
+  }
 }

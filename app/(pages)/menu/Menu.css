@@ -2,6 +2,7 @@
   display: flex;
   padding: 20px;
   background-color: #f9f9f9;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
 /* Filter Section */
@@ -19,10 +20,10 @@
   margin-bottom: 15px;
   font-weight: bold;
 }
-.filter-section h2{
+.filter-section h2 {
   border-bottom: 1px solid #333;
   padding-bottom: 10px;
- font-size: 20px; 
+  font-size: 20px; 
 }
 .search-bar input[type="text"] {
   width: 100%;
@@ -69,21 +70,21 @@
 
 /* Product Section */
 .product-section {
-  
+  flex: 3;
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   width: 84%;
 }
-.product-section .foods-wrapper{
+.product-section .foods-wrapper {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 20px;
 }
-.filter-btn{
+.filter-btn {
   background-color: #ff6347; /* Highlighted color */
   color: #fff;
   border: none;
@@ -97,11 +98,11 @@
   gap: 10px;
   margin-top: 10px;
 }
-.filter-btn:hover{
+.filter-btn:hover {
   background-color: #333;
   color: #fff;
 }
-.filter-result{
+.filter-result {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -110,9 +111,11 @@
   padding: 10px 15px;
   border-radius: 4px;
 }
-.filter-result span{font-weight: 500;}
+.filter-result span {
+  font-weight: 500;
+}
 
-.filter-result .single-cat{
+.filter-result .single-cat {
   background-color: #fff;
   padding: 4px 10px;
   display: flex;
@@ -120,14 +123,14 @@
   gap: 3px;
   position: relative;
 }
-.filter-result .single-cat span{
+.filter-result .single-cat span {
   position: absolute;
   top: -4px;
   right: -4px;
   z-index: 1;
   cursor: pointer;
 }
-.error-message{
+.error-message {
   display: block;
   margin-top: 30px;
   background-color: #12617d;
@@ -135,4 +138,83 @@
   width: 100%;
   padding: 10px 20px;
   font-size: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .menu-container {
+    flex-direction: column;
+  }
+  
+  .filter-section {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px; 
+  }
+
+  .product-section {
+    width: 100%;
+  }
+
+  .foods-wrapper .food-item {
+    width: 48%; 
+  }
+}
+
+@media (max-width: 768px) {
+  .foods-wrapper .food-item {
+    width: 100%; 
+  }
+
+  .filter-section {
+    padding: 15px;
+  }
+
+  .product-section {
+    padding: 15px;
+  }
+
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .error-message {
+    font-size: 18px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .filter-section h2 {
+    font-size: 18px;
+  }
+
+  .search-bar input[type="text"] {
+    font-size: 14px;
+  }
+
+  .filter-price input[type="number"] {
+    font-size: 14px;
+  }
+
+  .filter-category label,
+  .filter-price label {
+    font-size: 13px;
+  }
+
+  .filter-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .error-message {
+    font-size: 16px;
+    padding: 6px 12px;
+  }
+
+  .foods-wrapper .food-item {
+    width: 100%; 
+    margin-bottom: 10px; 
+  }
 }

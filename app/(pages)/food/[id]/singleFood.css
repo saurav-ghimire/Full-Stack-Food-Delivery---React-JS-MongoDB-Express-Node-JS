@@ -1,13 +1,11 @@
-
-
 .single-food-page {
-
   background-color: #f4f4f4;
   padding: 20px;
 }
 
 .food-container {
   display: flex;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
   align-items: flex-start;
   max-width: 80%;
   background-color: #fff;
@@ -55,8 +53,6 @@
   line-height: 1.6;
 }
 
-
-/* General Button Styles */
 .add-to-cart-btn {
   background-color: #ff6347; /* Highlighted color */
   color: #fff;
@@ -76,7 +72,7 @@
   background-color: #e6533b;
 }
 
-/* Add to Cart*/
+/* Add to Cart */
 .food-item-counter {
   display: flex;
   align-items: center;
@@ -112,7 +108,7 @@
   color: #333;
 }
 
-.single-food-page .proceed-to-pay-btn{
+.single-food-page .proceed-to-pay-btn {
   background-color: #12617d;
   color: #fff;
   border: none;
@@ -127,8 +123,8 @@
   margin-top: 20px;
 }
 
-.single-food-page .logonMessage h3{
-  color:#12617d;
+.single-food-page .logonMessage h3 {
+  color: #12617d;
   font-weight: bold;
   margin-top: 10px;
 }
@@ -141,4 +137,145 @@
   font-weight: 600;
   color: #333;
   margin-bottom: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .food-container {
+    max-width: 100%; 
+    flex-direction: column; 
+    padding: 15px;
+  }
+
+  .food-image {
+    max-width: 100%; 
+    margin-bottom: 20px; 
+  }
+
+  .food-details {
+    margin-left: 0; 
+  }
+
+  .food-title {
+    font-size: 22px;
+  }
+
+  .food-price {
+    font-size: 18px;
+  }
+
+  .food-desc {
+    font-size: 15px;
+  }
+
+  .add-to-cart-btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .food-item-counter {
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .icon-container {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .item-count {
+    font-size: 16px;
+  }
+
+  .single-food-page .proceed-to-pay-btn {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .food-title {
+    font-size: 20px;
+  }
+
+  .food-price {
+    font-size: 16px;
+  }
+
+  .food-desc {
+    font-size: 14px;
+  }
+
+  .add-to-cart-btn {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  .food-item-counter {
+    gap: 8px;
+  }
+
+  .icon-container {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .item-count {
+    font-size: 14px;
+  }
+
+  .single-food-page .proceed-to-pay-btn {
+    padding: 8px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .single-food-page {
+    padding: 15px;
+  }
+
+  .food-container {
+    padding: 10px;
+  }
+
+  .food-title {
+    font-size: 18px;
+  }
+
+  .food-price {
+    font-size: 16px;
+  }
+
+  .food-desc {
+    font-size: 14px;
+  }
+
+  .add-to-cart-btn {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  .food-item-counter {
+    gap: 8px;
+  }
+
+  .icon-container {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .item-count {
+    font-size: 14px;
+  }
+
+  .single-food-page .proceed-to-pay-btn {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .single-food-page .food-category {
+    font-size: 14px;
+    padding: 4px 8px;
+  }
 }

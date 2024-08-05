@@ -29,7 +29,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991) {
   .food-display-item {
     width: calc(50% - 32px);
   }
@@ -38,5 +38,8 @@
 @media (max-width: 480px) {
   .food-display-item {
     width: 100%;
+  }
+  .food_display h2{
+    font-size: 1.2em;
   }
 }

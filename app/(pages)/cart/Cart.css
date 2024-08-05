@@ -17,7 +17,7 @@
   color: #333;
 }
 
-.logonMessage{
+.logonMessage {
   font-size: 1.2rem;
   color: #333;
   font-weight: bold;
@@ -25,6 +25,7 @@
   padding-top: 10px;
   margin-top: 10px;
 }
+
 .go-to-home-btn {
   display: inline-block;
   padding: 0.5rem 1rem;
@@ -41,8 +42,14 @@
   background-color: #0c4b5f;
 }
 
+.table-container {
+  width: 100%;
+  overflow-x: auto; /* Enables horizontal scrolling */
+}
+
 .cart-table {
   width: 100%;
+  min-width: 600px; /* Ensures the table is scrollable on small screens */
   border-collapse: collapse;
   background: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -163,7 +170,8 @@
 .promotion button:hover {
   background-color: #0c4b5f;
 }
-.promotion .promotion-form{
+
+.promotion .promotion-form {
   position: relative;
 }
 
@@ -194,7 +202,8 @@
   margin-top: 15px;
   margin-bottom: 0;
 }
-.total-amount p .price-highlight{
+
+.total-amount p .price-highlight {
   color: #ff6347;
   font-size: 20px;
 }
@@ -213,9 +222,77 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-top: 20px;
-
 }
 
 .proceed-to-pay-btn:hover {
   background-color: #0c4b5f;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .cart-wrapper {
+    padding: 1rem;
+  }
+
+  .bottom-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .total-amount, .promotion {
+    flex-basis: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .cart-title {
+    font-size: 1.25rem;
+  }
+
+  .cart-table th, .cart-table td {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .bottom-wrapper {
+    flex-direction: column;
+  }
+
+  .promotion p, .total-amount p {
+    font-size: 14px;
+  }
+
+  .proceed-to-pay-btn {
+    font-size: 16px;
+    padding: 12px 25px;
+  }
+}
+
+@media (max-width: 576px) {
+  .cart-wrapper {
+    padding: 1rem 0.5rem;
+  }
+
+  .cart-title {
+    font-size: 1.1rem;
+  }
+
+  .cart-table th, .cart-table td {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .cart-table th {
+    font-size: 0.9rem;
+  }
+
+  .promotion input, .promotion button {
+    font-size: 14px;
+  }
+
+  .proceed-to-pay-btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
 }
