@@ -3,6 +3,7 @@ import axios from 'axios';
 import { createContext, useContext, useState, useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 const MyContext = createContext(null);
 
 export const MyProvider = ({ children }) => {
@@ -10,7 +11,7 @@ export const MyProvider = ({ children }) => {
   const [token, setToken] = useState("");
   const [food_list, setFoodList] = useState([]);
 
-  const fetchFoodList = async() => {
+  const fetchFoodList = async () => {
     try {
       const response = await axios.get(process.env.NEXT_PUBLIC_BACKEND_URL + 'api/food/foods');
       if (response.data) {
@@ -21,7 +22,6 @@ export const MyProvider = ({ children }) => {
     } catch (error) {
       console.error("Error fetching food list:", error);
     }
-    
   }
 
   const addToCart = async (itemId) => {
@@ -34,7 +34,7 @@ export const MyProvider = ({ children }) => {
       }
       return updatedCart;
     });
-  
+
     if (token) {
       try {
         await axios.post(process.env.NEXT_PUBLIC_BACKEND_URL + 'api/cart/add', { itemId }, {
@@ -45,7 +45,6 @@ export const MyProvider = ({ children }) => {
       }
     }
   };
-  
 
   const removeFromCart = async (itemId) => {
     setCartItems((prev) => {
@@ -73,7 +72,6 @@ export const MyProvider = ({ children }) => {
 
   const [totalPrice, setTotalPrice] = useState(0);
 
-  // Calculate total price when cartItems or food_list changes
   const calculateTotalPrice = () => {
     let total = 0;
     food_list.forEach(item => {
@@ -87,7 +85,7 @@ export const MyProvider = ({ children }) => {
   const loadCartData = async () => {
     try {
       const response = await axios.get(process.env.NEXT_PUBLIC_BACKEND_URL + 'api/cart/get', {
-        headers: {token}
+        headers: { token }
       });
       setCartItems(response.data.cartData);
       return { success: true, response };
@@ -112,7 +110,7 @@ export const MyProvider = ({ children }) => {
 
   useEffect(() => {
     setTotalPrice(calculateTotalPrice());
-  }, [cartItems, food_list]); // Depend on cartItems and food_list
+  }, [cartItems, food_list]);
 
   const contextValue = {
     food_list,
@@ -134,4 +132,4 @@ export const MyProvider = ({ children }) => {
   );
 };
 
-export const storeContext = () => useContext(MyContext);
+export const useStoreContext = () => useContext(MyContext);
