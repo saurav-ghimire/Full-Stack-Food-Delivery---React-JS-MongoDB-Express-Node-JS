@@ -6,15 +6,11 @@ This is a full-stack web application built using Next.js, React, Node.js, Expres
 
 ### Homepage
 
-![Homepage](public/images/home.png)
+![Homepage](public/images/homepage.png)
 
 ### Cart
 
 ![Cart](public/images/cart.png)
-
-### Dashboard
-
-![Dashboard](public/images/dashboard.png)
 
 ### Checkout
 
@@ -23,6 +19,10 @@ This is a full-stack web application built using Next.js, React, Node.js, Expres
 ### Menu
 
 ![Menu](public/images/menu.png)
+
+### Dashboard
+
+![Dashboard](public/images/dashboard.png)
 
 ## Getting Started
 
