@@ -1,6 +1,6 @@
 "use client"
 import axios from 'axios';
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -8,21 +8,33 @@ const MyContext = createContext(null);
 
 export const MyProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState({});
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [food_list, setFoodList] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
-  const fetchFoodList = async () => {
+  // Fetch food list and cart data in a single API call
+  const fetchInitialData = async () => {
     try {
-      const response = await axios.get(process.env.NEXT_PUBLIC_BACKEND_URL + 'api/food/foods');
-      if (response.data) {
-        setFoodList(response.data.data);
+      const [foodResponse, cartResponse] = await axios.all([
+        axios.get(process.env.NEXT_PUBLIC_BACKEND_URL + 'api/food/foods'),
+        token ? axios.get(process.env.NEXT_PUBLIC_BACKEND_URL + 'api/cart/get', { headers: { token } }) : Promise.resolve({ data: { cartData: {} } })
+      ]);
+
+      if (foodResponse.data) {
+        setFoodList(foodResponse.data.data);
       } else {
-        console.error("No data found in response");
+        console.error("No food data found in response");
       }
+
+      setCartItems(cartResponse.data.cartData || {});
     } catch (error) {
-      console.error("Error fetching food list:", error);
+      console.error("Error fetching initial data:", error);
     }
-  }
+  };
+
+  useEffect(() => {
+    fetchInitialData();
+  }, [token]);
 
   const addToCart = async (itemId) => {
     setCartItems((prev) => {
@@ -68,11 +80,10 @@ export const MyProvider = ({ children }) => {
         console.error("Error removing from cart:", error);
       }
     }
-  }
+  };
 
-  const [totalPrice, setTotalPrice] = useState(0);
-
-  const calculateTotalPrice = () => {
+  // Memoize the total price calculation to avoid unnecessary recalculations
+  const calculateTotalPrice = useMemo(() => {
     let total = 0;
     food_list.forEach(item => {
       if (cartItems[item._id] > 0) {
@@ -80,39 +91,13 @@ export const MyProvider = ({ children }) => {
       }
     });
     return total;
-  };
-
-  const loadCartData = async () => {
-    try {
-      const response = await axios.get(process.env.NEXT_PUBLIC_BACKEND_URL + 'api/cart/get', {
-        headers: { token }
-      });
-      setCartItems(response.data.cartData);
-      return { success: true, response };
-    } catch (error) {
-      console.error("Error loading cart data:", error);
-      return { success: false, error };
-    }
-  }
-
-  useEffect(() => {
-    if (localStorage.getItem("token")) {
-      setToken(localStorage.getItem("token"));
-    }
-    fetchFoodList();
-  }, []);
-
-  useEffect(() => {
-    if (token) {
-      loadCartData();
-    }
-  }, [token]);
-
-  useEffect(() => {
-    setTotalPrice(calculateTotalPrice());
   }, [cartItems, food_list]);
 
-  const contextValue = {
+  useEffect(() => {
+    setTotalPrice(calculateTotalPrice);
+  }, [calculateTotalPrice]);
+
+  const contextValue = useMemo(() => ({
     food_list,
     cartItems,
     setCartItems,
@@ -121,8 +106,8 @@ export const MyProvider = ({ children }) => {
     setToken,
     token,
     totalPrice,
-    loadCartData
-  };
+    fetchInitialData // exposed for potential manual refreshes
+  }), [food_list, cartItems, token, totalPrice]);
 
   return (
     <MyContext.Provider value={contextValue}>
