@@ -8,9 +8,18 @@ const MyContext = createContext(null);
 
 export const MyProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState({});
-  const [token, setToken] = useState(localStorage.getItem("token") || "");
+  const [token, setToken] = useState("");
+
   const [food_list, setFoodList] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+
+  // Safely access localStorage inside useEffect
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedToken = localStorage.getItem("token") || "";
+      setToken(storedToken);
+    }
+  }, []);
 
   // Fetch food list and cart data in a single API call
   const fetchInitialData = async () => {
@@ -33,7 +42,9 @@ export const MyProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    fetchInitialData();
+    if (token) {
+      fetchInitialData();
+    }
   }, [token]);
 
   const addToCart = async (itemId) => {
